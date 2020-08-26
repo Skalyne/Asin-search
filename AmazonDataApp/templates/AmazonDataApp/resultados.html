@@ -1,0 +1,17 @@
+{% extends "AmazonDataApp/search.html" %}
+{% block content %}
+{% if asin %}
+        <p>Estás buscando {{asin}}</p>
+
+        
+
+            <ul>
+                {% for item in lista %}
+                    <li>{{item}}</li>
+                {% endfor %}
+            </ul>
+        {% else %}
+            <p>No se han encontrado articulos</p>
+
+        {% endif %}
+{% endblock %}
