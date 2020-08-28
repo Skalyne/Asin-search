@@ -2,6 +2,7 @@
 <html lang="es">
 
 <head>
+    {% load static %}
     <meta charset="UTF-8"/>
     <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
     <meta name="description" content= "pagina para comprobar asin"/>
@@ -9,11 +10,12 @@
 
     <title>Document</title>
 </head>
-<body>
-    {% load static %}
+<body bgcolor="#f4c90b">
+    
     <header>
         <figure><!--se utiliza para marcar una imagen que no tiene que ver directamente con el contenido de la etiqueta padre-->
-            <img src="media/head.jpg">
+
+            <img src="{% static 'AmazonDataApp/img/head.jpg' %}" width="100%">
         </figure>
     </header>
     <nav>
@@ -42,7 +44,7 @@
         <article>            
             <header>
                 <figcaption><!--se usa para identificar imágenes que tengan relacion directa por el contenido-->
-                    <img src="media/paisaje.jpg">
+                    <img src="{% static 'AmazonDataApp/img/paisaje.jpg' %}">
                 </figcaption>
                 <hgroup>
                 <h2>Titulo</h2>
