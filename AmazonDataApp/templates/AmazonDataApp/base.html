@@ -1,0 +1,68 @@
+<!DOCTYPE html>
+<html lang="es">
+
+<head>
+    <meta charset="UTF-8"/>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+    <meta name="description" content= "pagina para comprobar asin"/>
+    <meta name ="keywords" content="amazon,asin,comprobador"/>
+
+    <title>Document</title>
+</head>
+<body>
+    {% load static %}
+    <header>
+        <figure><!--se utiliza para marcar una imagen que no tiene que ver directamente con el contenido de la etiqueta padre-->
+            <img src="media/head.jpg">
+        </figure>
+    </header>
+    <nav>
+        <ul>
+            <li>HOME</li>
+            <li>ARCHIVOS</li>
+            <li>CONTACTO</li>
+            <li>ACERCA DE</li>
+        </ul>
+    </nav>
+
+    <aside>
+        <blockquote>Primer elemento</blockquote>
+        <blockquote>Segundo elemento</blockquote>
+        <blockquote>Tercer elemento</blockquote>
+    </aside>
+
+    <section>
+        <article>            
+            <header>
+                <figcaption><!--se usa para identificar imágenes que tengan relacion directa por el contenido-->
+                    <img src="media/paisaje.jpg">
+                </figcaption>
+                <hgroup>
+                <h2>Titulo</h2>
+                <h3>Subtitulo</h3>
+                </hgroup>            
+            </header>
+            <p>sequimos hablando de noticia 1</p>
+            <footer>
+                <p>comentarios</p>
+            </footer>
+        </article>
+
+        <article>            
+            <header>
+                <hgroup>
+                <h2>Titulo 2</h2>
+                <h3>Subtitulo 2</h3>
+                </hgroup>            
+            </header>
+            <p>sequimos hablando de noticia 2</p>
+            <footer>
+                <p>comentarios</p>
+            </footer>
+        </article>      
+    </section>
+    <footer>
+        pie de página
+    </footer>
+</body>
+</html>
