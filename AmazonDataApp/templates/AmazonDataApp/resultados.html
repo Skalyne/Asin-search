@@ -10,25 +10,15 @@
             </ul>
 {% endif %}
 
-{% if comp.len == 1 %}
-<ul>
-    <li>{{comp}}</li>
-</ul>
-
-
-
-{% else %}
-        
-            <ul>
-                {% for item in comp %}
-
-                    <li>{{item.titulo}}&nbsp;{{item.bullet_1}}</li> 
-             
-                {% endfor %}
-            </ul>
-
-
-
-
+{% if comp %}
+    <ul>
+        {% for item in comp %}
+            {% if item.titulo %}
+                <li>{{item.titulo}}&nbsp;{{item.bullet_1}}</li>  
+            {% else %}
+                <li>{{item}}</li>
+            {% endif %}
+        {% endfor %}
+    </ul>
 {% endif %}
 {% endblock %}
