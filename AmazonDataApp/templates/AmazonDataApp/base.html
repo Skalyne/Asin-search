@@ -30,7 +30,14 @@
         <blockquote>Segundo elemento</blockquote>
         <blockquote>Tercer elemento</blockquote>
     </aside>
-
+    <section>
+        {% include "AmazonDataApp/searchbar.html" %}
+    </section>
+    <section>
+        {% block content %}
+            
+        {% endblock %}
+    </section>
     <section>
         <article>            
             <header>

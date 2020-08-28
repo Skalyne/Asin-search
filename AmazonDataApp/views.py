@@ -7,7 +7,7 @@ from AmazonDataApp.models import DataSheet
 def busqueda_asin(request):
     
 
-    return render(request,"AmazonDataApp/search.html")
+    return render(request,"AmazonDataApp/base.html")
 
 
 def resultado_busqueda(request):
