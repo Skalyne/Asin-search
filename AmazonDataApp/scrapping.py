@@ -1,5 +1,10 @@
 from bs4 import BeautifulSoup
 import requests
+from AmazonDataApp.models import DataSheet
+from django.db import models
+
+
+
 
 def get_data(asin):
     headers = {
@@ -21,7 +26,25 @@ def get_data(asin):
         
     return data_list
 
+def compare_data(asin,lista):
+
+    try:
+        comp = DataSheet.objects.filter(asin=asin).order_by("-query_date")
+    except:
+        pass
+    if comp:
+        if (lista[0]==comp[0].titulo and lista[1]==comp[0].bullet_1 and lista[2]==comp[0].bullet_2 and lista[3]==comp[0].bullet_3 and lista[4]==comp[0].bullet_4 and lista[5]==comp[0].bullet_5):
+            pass            
+        else:
+            as1=DataSheet(asin=asin, titulo=lista[0],bullet_1=lista[1],bullet_2=lista[2],bullet_3=lista[3],bullet_4=lista[4],bullet_5=lista[5])
+            as1.save()
+        
+    else:
+        as1=DataSheet(asin=asin, titulo=lista[0],bullet_1=lista[1],bullet_2=lista[2],bullet_3=lista[3],bullet_4=lista[4],bullet_5=lista[5])
+        as1.save()
+        comp=["no hay registros previos"]
+    
+    return comp
+    
 
 
-
-get_data("B07J6JGP52/")

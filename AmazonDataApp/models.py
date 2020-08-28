@@ -12,4 +12,5 @@ class DataSheet (models.Model):
     bullet_5=models.CharField(max_length=254)
     category=models.CharField(max_length=254)
     query_date=models.DateTimeField(auto_now_add=True)
+    objects = models.Manager()
 

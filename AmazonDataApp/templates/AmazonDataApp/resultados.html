@@ -1,14 +1,34 @@
 {% extends "AmazonDataApp/base.html" %}
 {% block content %}
+
 {% if asin %}
-        <p bgcolor="red">Estás buscando {{asin}}</p>
-            <ul bgcolor="white">
+        <p>Estás buscando {{asin}}</p>
+            <ul>
                 {% for item in lista %}
                     <li>{{item}}</li>
                 {% endfor %}
             </ul>
-        {% else %}
-            <p>No se han encontrado articulos</p>
+{% endif %}
 
-        {% endif %}
+{% if comp.len == 1 %}
+<ul>
+    <li>{{comp}}</li>
+</ul>
+
+
+
+{% else %}
+        
+            <ul>
+                {% for item in comp %}
+
+                    <li>{{item.titulo}}&nbsp;{{item.bullet_1}}</li> 
+             
+                {% endfor %}
+            </ul>
+
+
+
+
+{% endif %}
 {% endblock %}
