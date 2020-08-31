@@ -7,34 +7,38 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
     <meta name="description" content= "pagina para comprobar asin"/>
     <meta name ="keywords" content="amazon,asin,comprobador"/>
-    <link rel="stylesheet" type="text/css" href="{% static 'AmazonDataApp/style.css' %}">/>
+    <link rel="stylesheet" type="text/css" href="{% static 'AmazonDataApp/style.css' %}"/>
 
     <title>Document</title></head>
 <body>
     
     <header>
-        <figure><!--se utiliza para marcar una imagen que no tiene que ver directamente con el contenido de la etiqueta padre-->
 
-            <img src="{% static 'AmazonDataApp/img/head.jpg' %}" width="100%">
-        </figure>
+
+            <img src="{% static 'AmazonDataApp/img/head.jpg' %}" width=100%>
+
     </header>
-    <nav>
+    <nav id=navegador>
         <ul>
-            <li>HOME</li>
-            <li>ARCHIVOS</li>
-            <li>CONTACTO</li>
-            <li>ACERCA DE</li>
+            <li><a href="#">HOME</a></li>
+            <li><a href="#">ARCHIVOS</a></li>
+            <li><a href="#">CONTACTO</a></li>
+            <li><a href="#">ACERCA DE</a></li>
         </ul>
     </nav>
 
-    <aside>
+
+
+    <aside id=barralateral>
         <blockquote>Primer elemento</blockquote>
         <blockquote>Segundo elemento</blockquote>
         <blockquote>Tercer elemento</blockquote>
     </aside>
+
     <section>
         {% include "AmazonDataApp/searchbar.html" %}
     </section>
+    
     <section>
         {% block content %}
             
