@@ -2,14 +2,18 @@
 {% block content %}
 
 {% if asin %}
+<article>
         <p>Estás buscando {{asin}}</p>
             <ul>
+                {% if lista %}
                 {% for item in lista %}
                     <li>{{item}}</li>
                 {% endfor %}
+                {% endif %}
             </ul>
+</article>
 {% endif %}
-
+<!--
 {% if comp %}
     <ul>
         {% for item in comp %}
@@ -21,4 +25,43 @@
         {% endfor %}
     </ul>
 {% endif %}
+-->
+
+<section>
+{% if comp %}
+<table>
+    <tr>
+        <th>ASIN</th>
+        <th>Titulo</th>
+        <th>Bullet Point 1</th>
+        <th>Bullet Point 2</th>
+        <th>Bullet Point 3</th>
+        <th>Bullet Point 4</th>
+        <th>Bullet Point 5</th>
+
+    </tr>
+    {% for item in comp %}
+    <tr>
+        {% if item.titulo %}
+            <td>{{asin}}</td>
+            <td>{{item.titulo}}</td>
+            <td>{{item.titulo}}</td>
+            <td>{{item.bullet_1}}</td>
+            <td>{{item.bullet_2}}</td>
+            <td>{{item.bullet_3}}</td>
+            <td>{{item.bullet_4}}</td>
+            <td>{{item.bullet_5}}</td>
+            <td>{{item.query_date}}</td>
+        {% else %}
+            <td>{{asin}}</td>
+            <td>Sin Datos</td>
+        {% endif %}
+    </tr>
+    {% endfor %}
+</table>
+<a href="">EXPORTAR A EXCEL</a>
+{% endif %}
+</section>
+
+
 {% endblock %}

@@ -8,9 +8,10 @@
     float: left;
     height: 1020px;
 }
-section{
+#secmarg{
     margin-left: 250px;
 }
+
 #navegador ul{
 list-style: none;
 text-align: center;
@@ -37,3 +38,7 @@ input[type=text] {
   
     -webkit-appearance: none;
   }
+
+#main-container{
+    margin: 100px auto;
+}
