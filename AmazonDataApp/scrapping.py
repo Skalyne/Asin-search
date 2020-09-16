@@ -5,19 +5,22 @@ from django.db import models
 from AmazonDataApp.resources.headers import header_list
 
 
-
+# Aqui lo que estas haciendo es probar con cada uno de los headers hasta obtener respuesta,
+# y lo que usas para comprobar esa condicion es la existencia de respuesta (que esta bien)
+# y la longitud de header list, incluyendo un try except. No es adecuado, te pongo una alternativa
+# en la funcion get_data_new
 def get_data(asin):
 
-    url = "https://www.amazon.es/dp/"+asin
-    data_list=[]
-
+    url = f'https://www.amazon.es/dp/{asin}'
+    data_list = []
+    
     header_position = 0
-    headers={'User-Agent': header_list[header_position]}
+    headers = {'User-Agent': header_list[header_position]}
     respuesta = False
 
     while not respuesta:
         if header_position >= (len(header_list)-1):
-            data_list=["No se encontraron datos para este ASIN"]
+            data_list = ["No se encontraron datos para este ASIN"]
             break
         try:
             response = requests.post(url,headers=headers)
@@ -33,6 +36,26 @@ def get_data(asin):
 
     return data_list
 
+def get_data_new(asin):
+
+    url = f'https://www.amazon.es/dp/{asin}'
+    data_list = []
+    
+    for h in header_list:
+        headers = {'User-Agent': h}
+        try:
+            response = requests.post(url, headers=headers)
+            if response.status_code == 200:
+                soup = BeautifulSoup(response.content, "lxml")
+                respuesta = soup.find(
+                    class_="a-unordered-list a-vertical a-spacing-mini").find_all(class_="a-list-item")
+                data_list.append(soup.title.text)
+                for item in respuesta:
+                    data_list.append(item.text)
+        except Exception as e:
+            print(f'Ha habido un problema al hacer la request: {e}')
+
+    return data_list
 
 def compare_data(asin,lista):
     try:

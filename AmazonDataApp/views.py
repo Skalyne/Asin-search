@@ -7,27 +7,26 @@ from openpyxl import Workbook
 
 # Create your views here.
 def busqueda_asin(request):
-
     return render(request,"AmazonDataApp/base.html")
 
 
 def resultado_busqueda(request):
     producto = request.GET["prd"]
-    lista=[]
-    if len(producto)==10:
-        lista=get_data(producto)
-        comp = compare_data(producto,lista)
+    lista = []
+    if len(producto) == 10:
+        lista = get_data(producto)
+        comp = compare_data(producto, lista)
     else:
-        comp=["no es un asin válido"]
-    return render(request,"AmazonDataApp/resultados.html",{"asin":producto, "lista":lista,"comp":comp})
+        comp = ["no es un asin válido"]
+    return render(request,"AmazonDataApp/resultados.html", {"asin":producto, "lista":lista,"comp":comp})
 
 
 
 def resultado_busqueda_db(request):
     producto = request.GET["prddb"]
-    if len(producto)==10:
-        comp=db_query(producto)
+    if len(producto) == 10:
+        comp = db_query(producto)
     else:
-        comp=["no es un asin válido"]
-    return render(request,"AmazonDataApp/resultados.html",{"asin":producto,"comp":comp})
+        comp = ["no es un asin válido"]
+    return render(request,"AmazonDataApp/resultados.html", {"asin":producto,"comp":comp})
     
